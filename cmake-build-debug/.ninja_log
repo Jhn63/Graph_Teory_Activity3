@@ -1,13 +1,10 @@
 # ninja log v5
-18	2942	7190176251386281	CMakeFiles/Atividade_3.dir/SuperGraph.cpp.obj	d1969fbe75ea923f
-171	766	7190146139880902	CMakeFiles/Atividade_3.dir/GSet.cpp.obj	5bd3a7df7fc47067
-13	1666	7190177379720355	CMakeFiles/Atividade_3.dir/main.cpp.obj	698829f74b780a20
-135	2245	7190146154770151	CMakeFiles/Atividade_3.dir/Karger.cpp.obj	87becdc33a023b80
-1669	2358	7190177385860954	Atividade_3.exe	6a6d5f41917ccce1
-112	1172	7189186087925488	CMakeFiles/Atividade_3.dir/Graph.cpp.obj	560ea30d07d508bc
-12	1944	7190179743974259	CMakeFiles/Atividade_3.dir/main.cpp.obj	698829f74b780a20
-50	2541	7190179749931722	CMakeFiles/Atividade_3.dir/SuperGraph.cpp.obj	d1969fbe75ea923f
-2542	3218	7190179756445955	Atividade_3.exe	6a6d5f41917ccce1
-22	1941	7190182558603626	CMakeFiles/Atividade_3.dir/main.cpp.obj	698829f74b780a20
-71	2494	7190182564143961	CMakeFiles/Atividade_3.dir/SuperGraph.cpp.obj	d1969fbe75ea923f
-2495	3179	7190182570718016	Atividade_3.exe	6a6d5f41917ccce1
+32	3067	7204666207492072	CMakeFiles/Atividade_3.dir/main.cpp.obj	698829f74b780a20
+83	465	7204146102315417	CMakeFiles/Atividade_3.dir/GSet.cpp.obj	5bd3a7df7fc47067
+96	4800	7204666224908050	CMakeFiles/Atividade_3.dir/SuperGraph.cpp.obj	d1969fbe75ea923f
+4801	5617	7204666232863561	Atividade_3.exe	6a6d5f41917ccce1
+154	2986	7204666206744308	CMakeFiles/Atividade_3.dir/Karger.cpp.obj	87becdc33a023b80
+75	1272	7204634319504763	CMakeFiles/Atividade_3.dir/Graph.cpp.obj	560ea30d07d508bc
+49	2417	7204669057839902	CMakeFiles/Atividade_3.dir/Karger.cpp.obj	87becdc33a023b80
+10	2549	7204669059229655	CMakeFiles/Atividade_3.dir/main.cpp.obj	698829f74b780a20
+2552	3351	7204669067035739	Atividade_3.exe	6a6d5f41917ccce1

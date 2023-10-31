@@ -8,8 +8,6 @@ add_executable(Atividade_3 main.cpp
         SuperGraph.h
         GSet.cpp
         GSet.h
-        Graph.cpp
-        Graph.h
         Karger.cpp
         Karger.h
 )

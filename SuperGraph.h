@@ -5,12 +5,11 @@
 #ifndef ATIVIDADE_3_SUPERGRAPH_H
 #define ATIVIDADE_3_SUPERGRAPH_H
 
-
 #include <random>
 #include <vector>
 #include <unordered_set>
 #include <unordered_map>
-#include "Graph.h"
+#include <iostream>
 #include "GSet.h"
 
 struct hash_pair {
@@ -23,9 +22,16 @@ class SuperGraph {
 private:
     int max_set;
 
+    std::vector<std::vector<uint8_t>> *matrix;
+
+
+    void initialize();
     void contract(int v, int u);
+    void load_data(std::string path);
+    std::vector<std::pair<int,int>> refine(std::vector<std::pair<GSet,GSet>> bt_list);
 public:
-    SuperGraph();
+    SuperGraph(std::string file);
+    ~SuperGraph();
 
     std::unordered_map<int, GSet> *vertex;
     std::unordered_set<std::pair<int, int>, hash_pair> *edges;

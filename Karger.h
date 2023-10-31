@@ -10,10 +10,11 @@
 class Karger {
 private:
     SuperGraph *s_graph;
+
 public:
     Karger(SuperGraph *s);
 
-    std::vector<std::pair<int,int>>& min_cut();
+    std::vector<std::pair<int,int>> min_cut();
 };
 
 
