@@ -38,17 +38,6 @@ void SuperGraph::initialize() {
         }
     }
 
-    std::cout << "vertex: " << std::endl;
-    for (auto v : *vertex) {
-        std::cout << v.second.id << std::endl;
-    }
-    std::cout << std::endl;
-
-    std::cout << "edge: " << std::endl;
-    for (auto v : *edges) {
-        std::cout << "( " << v.first << " , " << v.second << " )" << std::endl;
-    }
-    std::cout << std::endl;
 }
 
 void SuperGraph::load_data(std::string path) {
@@ -136,10 +125,6 @@ void SuperGraph::contract(int v, int u) {
     for (const auto &edge : to_insert) {
         edges->insert(edge);
     }
-    for (const auto &edge : to_insert) {
-        std::cout << edge.first << " , " << edge.second << std::endl;
-    }
-    std::cout << std::endl;
 }
 
 std::vector<std::pair<int, int>> SuperGraph::back_tracking() {
@@ -170,6 +155,9 @@ std::vector<std::pair<int, int>> SuperGraph::back_tracking() {
                     concat.push_back({*it.first.set1, it.second});
                     concat.push_back({*it.first.set2, it.second});
                     flag = true;
+                }
+                else {
+                    concat.push_back({it.first, it.second});
                 }
             }
 
@@ -208,8 +196,8 @@ int SuperGraph::vtx_total() {
 
 std::pair<int,int> SuperGraph::get_random_pair() {
     std::vector<std::pair<int, int>> vector(edges->begin(),edges->end());
-    std::random_device seed;
-    std::mt19937 gen(seed());
-    std::uniform_int_distribution<int> random(0, vector.size()-1);
-    return vector[random(gen)];
+
+    srand(time(NULL));
+    int gen = fabs(rand() % (vector.size()-1));
+    return vector[gen];
 }
