@@ -13,5 +13,7 @@ std::vector<std::pair<int, int>> Karger::min_cut() {
         s_graph->merge(edge.first, edge.second);
 
     }
-    return s_graph->back_tracking();
+    auto e = s_graph->back_tracking();
+    s_graph->clear();
+    return e;
 }

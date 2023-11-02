@@ -8,6 +8,7 @@
 #include "SuperGraph.h"
 
 SuperGraph::SuperGraph(std::vector<std::vector<uint8_t>> *m) : max_set(0), matrix(m) {
+    srand(time(NULL));
     this->vertex = new std::unordered_map<int, GSet>;
     this->edges = new std::unordered_set<std::pair<int,int>, hash_pair>;
     initialize();
@@ -62,8 +63,8 @@ void SuperGraph::merge(int v, int u) {
     GSet *comb = new GSet(max_set, set1, set2);
     vertex->insert({max_set,*comb});
 
-    vertex->erase(v);//erro
-    vertex->erase(u);//erro
+    vertex->erase(v);
+    vertex->erase(u);
     contract(v, u);
 }
 
@@ -159,6 +160,12 @@ std::vector<std::pair<int,int>> SuperGraph::refine(std::vector<std::pair<GSet,GS
     return refined;
 }
 
+void SuperGraph::clear() {
+    this->max_set = 0;
+    this->edges->clear();
+    this->vertex->clear();
+    initialize();
+}
 
 int SuperGraph::vtx_total() {
     return vertex->size();
@@ -166,8 +173,6 @@ int SuperGraph::vtx_total() {
 
 std::pair<int,int> SuperGraph::get_random_pair() {
     std::vector<std::pair<int, int>> vector(edges->begin(),edges->end());
-
-    srand(time(NULL));
     int gen = fabs(rand() % (vector.size()-1));
     return vector[gen];
 }

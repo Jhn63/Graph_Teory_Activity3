@@ -3,10 +3,10 @@
 //
 
 #include <iostream>
-#include <set>
 #include "Naive.h"
 
 Naive::Naive(std::vector<std::vector<uint8_t>> *m) : matrix(m) {
+    srand(time(NULL));
     this->vertex = new std::vector<uint8_t>(m->size());
     this->list = new std::vector<std::list<int>>(m->size());
 
@@ -29,8 +29,6 @@ Naive::~Naive() {
 }
 
 void Naive::make_set() {
-    srand(time(NULL));
-
     bool flag1 = true, flag2 = true;
     while (flag1 or flag2) {
 

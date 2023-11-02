@@ -5,6 +5,7 @@
 #ifndef ATIVIDADE_3_NAIVE_H
 #define ATIVIDADE_3_NAIVE_H
 
+#include <set>
 #include <map>
 #include <list>
 #include <queue>
@@ -30,6 +31,7 @@ public:
     Naive(std::vector<std::vector<uint8_t>> *m);
     ~Naive();
 
+    void clear();
     std::vector<std::pair<int,int>> min_cut();
 };
 

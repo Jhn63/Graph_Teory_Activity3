@@ -37,6 +37,7 @@ public:
     void make_pair(int v, int u) const; //insert edges into it (v < u)
     void merge(int v, int u);
 
+    void clear();
     int vtx_total();
     std::pair<int,int> get_random_pair();
     std::vector<std::pair<int,int>> back_tracking();
