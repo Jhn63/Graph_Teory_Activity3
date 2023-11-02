@@ -1,14 +1,16 @@
 #include <iostream>
 
 #include "Karger.h"
+#include "IO.h"
+#include "Naive.h"
 
 int main() {
-    SuperGraph *s = new SuperGraph("test.txt");
-    Karger karger(s);
+    IO io;
+    Naive *n = new Naive(io.load_data("test.txt"));
+    auto edges = n->min_cut();
 
-    auto base_edges = karger.min_cut();
-    std::cout << "min_cut: " << std::endl;
-    for (auto e : base_edges) {
+    std::cout << "min cut:" << std::endl;
+    for (auto e : edges) {
         std::cout << "( " << e.first << " , " << e.second << " )" << std::endl;
     }
 }

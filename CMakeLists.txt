@@ -10,4 +10,8 @@ add_executable(Atividade_3 main.cpp
         GSet.h
         Karger.cpp
         Karger.h
+        Naive.cpp
+        Naive.h
+        IO.cpp
+        IO.h
 )

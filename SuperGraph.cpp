@@ -7,12 +7,9 @@
 #include <algorithm>
 #include "SuperGraph.h"
 
-SuperGraph::SuperGraph(std::string file) : max_set(0) {
+SuperGraph::SuperGraph(std::vector<std::vector<uint8_t>> *m) : max_set(0), matrix(m) {
     this->vertex = new std::unordered_map<int, GSet>;
-    this->matrix = new std::vector<std::vector<uint8_t>>;
     this->edges = new std::unordered_set<std::pair<int,int>, hash_pair>;
-
-    load_data(file);
     initialize();
 }
 
@@ -38,33 +35,6 @@ void SuperGraph::initialize() {
         }
     }
 
-}
-
-void SuperGraph::load_data(std::string path) {
-    std::ifstream input;
-    input.open(path);
-    if (!input.is_open()) {
-        std::cerr << "file not open";
-        delete this;  exit(-1);
-    }
-
-    int trash; input >> trash;
-
-    std::string line;
-    while (!input.eof()) {
-        std::getline(input, line);
-
-        int data;
-        if (!line.empty()) {
-            std::vector<uint8_t> row;
-            std::istringstream stream(line);
-            while (stream >> data) {
-                row.push_back(data);
-            }
-            matrix->push_back(row);
-        }
-    }
-    input.close();
 }
 
 void SuperGraph::make_set(int v) {

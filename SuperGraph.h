@@ -5,7 +5,7 @@
 #ifndef ATIVIDADE_3_SUPERGRAPH_H
 #define ATIVIDADE_3_SUPERGRAPH_H
 
-#include <time.h>
+#include <ctime>
 #include <random>
 #include <vector>
 #include <unordered_set>
@@ -28,10 +28,9 @@ private:
 
     void initialize();
     void contract(int v, int u);
-    void load_data(std::string path);
     std::vector<std::pair<int,int>> refine(std::vector<std::pair<GSet,GSet>> bt_list);
 public:
-    SuperGraph(std::string file);
+    SuperGraph(std::vector<std::vector<uint8_t>> *m);
     ~SuperGraph();
 
     void make_set(int v); // create a new set and push into it
