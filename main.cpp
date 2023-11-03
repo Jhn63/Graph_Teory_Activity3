@@ -5,43 +5,42 @@
 #include "IO.h"
 #include "Naive.h"
 
+#define N_EXEC 1000
+
 int main() {
     IO io;
     auto m = io.load_data("test.txt");
-
     SuperGraph *s = new SuperGraph(m);
+
     Karger karger(s);
     Naive naive(m);
 
-    int minimal_cut = INT_MAX;
-    for (int i = 0; i < 10000; i++) {
-        auto e = karger.min_cut();
-        if (e.size() < minimal_cut) {
-            minimal_cut = e.size();
+    int minimal_cut = 1;
+    double prob_k = 0, prob_n;
+    for (int niter = 10; prob_k < 0.98; niter+= 10) {
+
+        int count_k = 0, count_n = 0;
+        for (int i = 0; i < niter; i++) {
+
+            auto k_cut = karger.min_cut();
+            if (k_cut.size() == minimal_cut) {
+                count_k++;
+            }
+            auto n_cut = naive.min_cut();
+            if (n_cut.size() == minimal_cut) {
+                count_n++;
+            }
         }
+        prob_k = static_cast<double>(count_k)/N_EXEC;
+        prob_n = static_cast<double>(count_n)/N_EXEC;
+
+        std::cout << "Karger: minimal cut founded " << count_k << " times ";
+        std::cout << "of " << niter << " iterations, probability: " << prob_k;
+        std::cout << std::endl << std::endl;
+
+        std::cout << "Naive: minimal cut founded " << count_n << " times ";
+        std::cout << "of " << niter << " iterations, probability: " << prob_n;
+        std::cout << std::endl << std::endl;
     }
-    int niter = 10000;
 
-    int n_min = 0;
-    int k_min = 0;
-    for (int k = 0; k < niter; k++) {
-
-        auto e = karger.min_cut();
-        if (e.size() == minimal_cut) {
-            k_min++;
-        }
-
-        auto a = naive.min_cut();
-        if (a.size() == minimal_cut) {
-            n_min++;
-        }
-    }
-
-    double kp = static_cast<double>(k_min)/niter;
-    std::cout << "Karger: " << k_min << " minimal cuts founded of " << niter;
-    std::cout << " iterations, probability: " << kp << std::endl;
-
-    double np = static_cast<double>(n_min)/niter;
-    std::cout << "Naive: " << n_min << " minimal cuts founded of " << niter;
-    std::cout << " iterations, probability: " << np << std::endl;
 }
